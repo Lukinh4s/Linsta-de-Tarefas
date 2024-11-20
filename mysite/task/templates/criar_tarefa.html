@@ -1,0 +1,38 @@
+{% extends 'menu.html' %}
+
+{% block content %}
+
+<main class='container mt-5'>
+
+    <div class="row">
+        
+        <div class="col-md-5 offset-md-3">
+
+            <form action="/criar/tarefa" method="POST" classe="card card-body">
+
+                {{error}}
+
+                {% csrf_token %}
+
+                <h1 class="text-center">Criar tarefa</h1>
+
+                <div class="mb-3">
+                    <label for="tittle" class="form-label">Titulo</label>
+                    <input type="text" class="form-control" name='tittle'>
+                </div>
+
+                <div class="mb-3">
+                    <label for="discribe" class="form-label">Titulo</label>
+                    <textarea class="form-control" name="discribe" id="discribe" rows="3"></textarea>
+                </div>
+
+                <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="important">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Tarefa importante</label>
+                  </div>
+
+                  <button type="submit" class="btn btn-outline-primary">Salvar tarefa</button>
+        </div>      
+     </div>
+</main>
+{% endblock %}

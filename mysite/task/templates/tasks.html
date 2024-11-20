@@ -1,0 +1,40 @@
+{% extends 'menu.html' %}
+
+{% block content %}
+
+<main class='container mt-5'>
+
+    <div class="row">
+        
+        <div class="col-md-5 offset-md-3">
+                
+            <h1 class="text-center">Tarefas</h1>
+
+            <ul class="list-group">
+
+                {% for task in tasks %}
+                
+                    <a class="list-group-item" href="{% url 'task_detalhe' task.id%}">
+                
+                        <header class='d-flex justify-content-between'>
+                            
+                            {% if task.important %}
+
+                                <strong class="fw-bold text-successs"> {{task.tittle}}</strong>
+
+                            {%else%}
+
+                            <pp class="fw-bold">{{ task.tittle }} </pp>
+
+                            {% endif %}
+
+                            <p>By: {{ task.user.emailuser }}</p>
+                        </header>        
+                {% endfor %}
+            </ul>
+
+        </div>      
+    </div>
+</main>
+
+{% endblock %}
